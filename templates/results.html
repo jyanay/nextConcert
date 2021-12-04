@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Next Concert Results{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+    <h4>Next concerts for {{ artist }} :</h4>
+    {% if not_found %}
+        <p>Sorry, we were unable to find any upcoming concerts for this artist. Please try again.</p>
+    {% endif %}
+    {% if result %}
+        {% for event in result %}
+            <p>{{ event.event_name }} @ {{ event.venue }}, in {{ event.location }} on {{ event.date }}</p>
+        {% endfor %}
+    {% endif %}
+    <h4>Search again</h4>
+  <form method="post">
+    <label for="artist">Enter an artist name</label>
+    <input name="artist" id="artist" required>
+    <input type="submit" value="submit">
+  </form>
+    </div>
+{% endblock %}

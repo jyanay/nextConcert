@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>{% block title %}Welcome to NextConcert{% endblock %}</h1>
+                <h3>Ugly, but functional</h3>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div>
+        <h1>Search for a Concert</h1>
+        <p>Enter an artists name to see upcoming shows.</p>
+        <form method="post" action=>
+            <label for="artist">Enter an artist name</label>
+            <input name="artist" id="artist" required>
+            <input type="submit" value="submit">
+        </form>
+    </div>
+</div>
+{% endblock %}
